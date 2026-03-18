@@ -20,12 +20,7 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: 'Internal Server Error' });
 });
 
-module.exports = app;
-
-// Run locally only
-if (process.env.NODE_ENV !== 'production') {
-  const PORT = 3333;
-  app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
-  });
-}
+// 👇 IMPORTANT: export as handler
+module.exports = (req, res) => {
+  return app(req, res);
+};
