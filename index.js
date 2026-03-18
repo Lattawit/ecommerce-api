@@ -1,9 +1,9 @@
 const express = require('express');
 const cors = require('cors');
 
-const customersRoutes = require('../routes/customers');
-const productsRoutes = require('../routes/products');
-const ordersRoutes = require('../routes/orders');
+const customersRoutes = require('./routes/customers');
+const productsRoutes = require('./routes/products');
+const ordersRoutes = require('./routes/orders');
 
 const app = express();
 
@@ -12,9 +12,9 @@ app.use(cors());
 app.use(express.json());
 
 // ✅ IMPORTANT: NO /api here (Vercel already adds it)
-app.use('/customers', customersRoutes);
-app.use('/products', productsRoutes);
-app.use('/orders', ordersRoutes);
+app.use('/api/customers', customersRoutes);
+app.use('/api/products', productsRoutes);
+app.use('/api/orders', ordersRoutes);
 
 // Health check (optional but useful)
 app.get('/', (req, res) => {
