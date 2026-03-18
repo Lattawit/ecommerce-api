@@ -10,17 +10,15 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// ⚠️ NO /api here
 app.use('/customers', customersRoutes);
 app.use('/products', productsRoutes);
 app.use('/orders', ordersRoutes);
 
-// Error handler
 app.use((err, req, res, next) => {
   console.error(err);
   res.status(500).json({ error: 'Internal Server Error' });
 });
 
-// 👇 IMPORTANT: export as handler
-module.exports = (req, res) => {
-  return app(req, res);
-};
+// 👇 REQUIRED for Vercel
+module.exports = app;
