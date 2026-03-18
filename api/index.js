@@ -1,9 +1,9 @@
 const express = require('express');
 const cors = require('cors');
 
-const customersRoutes = require('./routes/customers');
-const productsRoutes = require('./routes/products');
-const ordersRoutes = require('./routes/orders');
+const customersRoutes = require('../routes/customers');
+const productsRoutes = require('../routes/products');
+const ordersRoutes = require('../routes/orders');
 
 const app = express();
 
@@ -20,7 +20,6 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: 'Internal Server Error' });
 });
 
-// Export for Vercel
 module.exports = app;
 
 // Run locally only
