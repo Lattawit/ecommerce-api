@@ -10,9 +10,9 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.use('/api/customers', customersRoutes);
-app.use('/api/products', productsRoutes);
-app.use('/api/orders', ordersRoutes);
+app.use('/customers', customersRoutes);
+app.use('/products', productsRoutes);
+app.use('/orders', ordersRoutes);
 
 // Error handler
 app.use((err, req, res, next) => {
